@@ -40,6 +40,7 @@ import timezone from 'dayjs/plugin/timezone';
 import duration from 'dayjs/plugin/duration';
 import { usePrevious } from './hooks/use-previous';
 import jalaliday from 'jalali-plugin-dayjs';
+import { DateTime } from 'luxon';
 
 dayjs.extend(localeData);
 dayjs.extend(relativeTime);
@@ -112,8 +113,8 @@ const DateTimePicker = (
     components = {},
     month,
     year,
-    onMonthChange = () => {},
-    onYearChange = () => {},
+    onMonthChange = () => { },
+    onYearChange = () => { },
     use12Hours,
   } = props;
 
@@ -294,20 +295,22 @@ const DateTimePicker = (
 
   useEffect(() => {
     if (mode === 'single') {
-      let _date =
-        (date &&
-          (timePicker
-            ? dayjs.tz(date, timeZone)
-            : getStartOfDay(dayjs.tz(date, timeZone)))) ??
-        date;
+      // let _date =
+      //   (date &&
+      //     (timePicker
+      //       ? dayjs.tz(date, timeZone)
+      //       : getStartOfDay(dayjs.tz(date, timeZone)))) ??
+      //   date;
 
-      if (_date && maxDate && dayjs.tz(_date, timeZone).isAfter(maxDate)) {
-        _date = dayjs.tz(maxDate, timeZone);
-      }
+      let _date = date
 
-      if (_date && minDate && dayjs.tz(_date, timeZone).isBefore(minDate)) {
-        _date = dayjs.tz(minDate, timeZone);
-      }
+      // if (_date && maxDate && dayjs.tz(_date, timeZone).isAfter(maxDate)) {
+      //   _date = dayjs.tz(maxDate, timeZone);
+      // }
+
+      // if (_date && minDate && dayjs.tz(_date, timeZone).isBefore(minDate)) {
+      //   _date = dayjs.tz(minDate, timeZone);
+      // }
 
       dispatch({
         type: CalendarActionKind.CHANGE_SELECTED_DATE,

@@ -48,14 +48,14 @@ const Years = () => {
         style.year,
         styles.year,
         isActivated && styles.active_year,
-        isSelected && styles.selected_year,
+        // isSelected && styles.selected_year,
         isDisabled && styles.disabled,
       ]);
 
       const textStyle = StyleSheet.flatten([
         styles.year_label,
         isActivated && styles.active_year_label,
-        isSelected && styles.selected_year_label,
+        // isSelected && styles.selected_year_label,
         isDisabled && styles.disabled_label,
       ]);
 

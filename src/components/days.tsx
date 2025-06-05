@@ -44,6 +44,7 @@ const Days = () => {
     isRTL,
   } = useCalendarContext();
 
+
   const style = useMemo(() => createDefaultStyles(isRTL), [isRTL]);
 
   const { year, month, hour, minute } = getParsedDate(currentDate);
@@ -63,8 +64,7 @@ const Days = () => {
   );
 
   const daysGrid = useMemo(() => {
-    const today = dayjs().tz(timeZone);
-    dayjs.tz.setDefault(timeZone);
+    const today = dayjs();
 
     const {
       fullDaysInMonth,
@@ -118,7 +118,7 @@ const Days = () => {
           (isFirstDayOfMonth && selectedEndDay) ||
           (isLastDayOfMonth && selectedStartDay) ||
           dayjs(startDate).format('DDMMYYYY') ===
-            dayjs(endDate).format('DDMMYYYY')
+          dayjs(endDate).format('DDMMYYYY')
         ) {
           inRange = false;
         }
@@ -184,6 +184,7 @@ const Days = () => {
       } else if (mode === 'single') {
         isSelected = areDatesOnSameDay(day.date, date);
       }
+
 
       return {
         ...day,
