@@ -268,6 +268,7 @@ const createDefaultStyles = (isRTL: boolean) =>
       flexWrap: 'wrap',
       flexDirection: isRTL ? 'row-reverse' : 'row',
       alignContent: 'flex-start',
+      marginTop: 4
     },
   });
 
