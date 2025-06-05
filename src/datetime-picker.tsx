@@ -40,7 +40,6 @@ import timezone from 'dayjs/plugin/timezone';
 import duration from 'dayjs/plugin/duration';
 import { usePrevious } from './hooks/use-previous';
 import jalaliday from 'jalali-plugin-dayjs';
-import { DateTime } from 'luxon';
 
 dayjs.extend(localeData);
 dayjs.extend(relativeTime);
